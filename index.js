@@ -1,25 +1,15 @@
-'use extrict'
-
-
-const http = require('http')
-//const { stringify } = require('node:querystring')
-
-const port = process.env.PORT
+const http = require('http');
+const port = process.env.PORT;
 
 const server = http.createServer((req, res) => {
   
   let body = [];
-  req.on('data', (chunk) => {
+  request.on('data', (chunk) => {
     body.push(chunk);
   }).on('end', () => {
     body = Buffer.concat(body).toString();
-    // at this point, `body` has the entire request body stored in it as a string
+    response.end(body);
   });
-  
-  
-  res.statusCode = 200
-  res.setHeader('Content-Type', 'text/html')
-  res.end(body)
 })
 
 server.listen(port, () => {
